@@ -1,0 +1,61 @@
+<Gauge Name="M77 turn_slip" Version="1.0">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Image Sizes: 300,300 bak; 21,55 pointers;  -->
+
+  <Image Name="TandS.bmp"/>
+  
+  <!-- ========================= Side Slip ========================= -->
+  <Element>
+    <Position X="149" Y="151"/>
+    <Image Name="TandSsPtr.bmp" PointsTo="North">
+      <Axis X="10" Y="91"/>
+    </Image>
+    <Rotate>
+       <Value>(A:Turn coordinator ball,position) -1 max 1 min</Value>
+       <Nonlinearity>
+          <Item Value="-1" X="100" Y="75"/>
+          <Item Value="0" X="149" Y="58"/>
+          <Item Value="1" X="198" Y="75"/>
+       </Nonlinearity>
+       <Delay PixelsPerSecond="20"/>
+       <Failures>
+          <GAUGE_TURN_COORDINATOR Action="Freeze"/>
+       </Failures>
+    </Rotate>
+  </Element>
+
+
+  <!-- ========================= Turn Rate ========================= -->
+  <Element>
+    <Position X="149" Y="151"/>
+    <Image Name="TandStPtr.bmp" PointsTo="South">
+     <Axis X="10" Y="-36"/>
+    </Image>
+
+<!-- Rate 1 turn =180 degs./min. = 3 degs./sec. so Rate 4 is 12 degs./sec. -->
+    <Rotate>
+         <Value Minimum="-12.0" Maximum="12.0">(A:Delta heading rate,degrees per second) /-/</Value>
+         <Nonlinearity>
+            <Item Value="-12.0" X="214" Y="216"/>
+            <Item Value="-6.0" X="184" Y="236"/>
+            <Item Value="0.0" X="149" Y="242"/>
+            <Item Value="6.0" X="114" Y="236"/>
+            <Item Value="12.0" X="84" Y="216"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="180"/>
+       <Failures>
+          <SYSTEM_VACUUM Action="0"/>
+          <GAUGE_TURN_COORDINATOR Action="Freeze"/>
+       </Failures>
+    </Rotate>
+  </Element>
+
+  <Mouse>
+    <Area Bottom="140">
+      <Tooltip ID="TOOLTIPTEXT_SIDE_SLIP"/>
+    </Area>
+    <Area Top="160">
+      <Tooltip ID="TOOLTIPTEXT_TURN_COORDINATOR_RATE"/>
+    </Area>
+  </Mouse>
+</Gauge>

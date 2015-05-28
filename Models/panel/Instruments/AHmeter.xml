@@ -1,0 +1,27 @@
+<Gauge Name="Cygnet AH meter, mph" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- ImageSizes: Bak + Mask = 301,301: ball = 197,101.  -->
+   
+  <Image Name="ah_bak.bmp"/>
+
+  <Element>
+    <MaskImage Name="ah_mask.bmp" >
+      <Axis X="150" Y="150"/>
+    </MaskImage>
+    <Image Name="ah_ball.bmp" >
+      <Axis X="98" Y="2"/>
+    </Image>
+    <Shift>
+      <value Minimum="-90" Maximum="90">(A:Attitude Indicator pitch,degrees,degrees)</value>
+      <Scale Y="4" />
+    </Shift>
+    <Rotate>
+      <Value>(A:Attitude indicator bank degrees,radians)</Value>
+    </Rotate>
+  </Element>
+
+  <Mouse>
+    <Tooltip ID="TOOLTIPTEXT_ATTITUDE_INDICATOR_BANK_PITCH" />
+  </Mouse>
+
+</Gauge>

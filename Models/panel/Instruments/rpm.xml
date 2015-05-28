@@ -1,0 +1,32 @@
+<Gauge Name="F III D  RPM - Eagle" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+
+   <Image Name="rpmcase.bmp" ImageSizes="251,251"/>
+
+   <Element>
+      <Position X="125" Y="125"/>
+      <Image Name="rpmptr.bmp" PointsTo="East" ImageSizes="150,15">
+         <Axis X="50" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="30">(A:General Eng1 RPM,rpm) 100 /</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Nonlinearity>
+	<Item Value="0" X="122" Y="299"/>
+	<Item Value="6" X="81" Y="219"/>
+	<Item Value="8" X="57" Y="205"/>
+            	<Item Value="10" X="41" Y="186"/>
+	<Item Value="16" X="57" Y="47"/>
+           	<Item Value="24" X="224" Y="91"/>
+           	<Item Value="30" X="171" Y="218"/>
+         </Nonlinearity>
+      </Rotate>
+   </Element>
+
+   <Mouse>
+      <Tooltip ID="TOOLTIPTEXT_ENG1_TACHOMETER_RPM"/>
+   </Mouse>
+
+</Gauge>

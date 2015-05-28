@@ -1,0 +1,68 @@
+ <Gauge Name="Cygnet ECU" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Modelling the top view so the lever arms move half the range of the knobs and are drawn first. -->
+<!-- Image Sizes: 150,120, bak; ctls> Throtlle= 20,40;  Mix= 63,27 levers= 8,20. -->
+
+ <Image Name="ecuBak.bmp"/>
+
+ <Element>
+  <Image Name="ecuTlvr.bmp" />
+  <Shift>
+   <Value Minimum="0" Maximum="1">(A:General eng1 throttle lever position,part)</Value>
+   <Nonlinearity>
+     <Item Value="0" X="17" Y="70"/>
+     <Item Value="1" X="17" Y="30"/>
+   </Nonlinearity>
+  </Shift> 
+ </Element>
+
+ <Element>
+  <Image Name="ecuTknob.bmp" />
+  <Shift>
+   <Value Minimum="0" Maximum="1">(A:General eng1 throttle lever position,part)</Value>
+   <Nonlinearity>
+     <Item Value="0" X="11" Y="80"/>
+     <Item Value="1" X="11" Y="0"/>
+   </Nonlinearity>
+  </Shift> 
+ </Element>
+ 
+ <Element>
+  <Image Name="ecuMlvr.bmp" />
+  <Shift>
+   <Value Minimum="0" Maximum="1">(A:General eng1 mixture lever position,part)</Value>
+   <Nonlinearity>
+     <Item Value="0"       X="41" Y="70"/>
+     <Item Value="1"       X="41" Y="30"/>
+   </Nonlinearity>
+  </Shift> 
+ </Element>
+ 
+ <Element>
+  <Image Name="ecuMknob.bmp" />
+  <Shift>
+   <Value Minimum="0" Maximum="1">(A:General eng1 mixture lever position,part)</Value>
+   <Nonlinearity>
+     <Item Value="0"       X="41" Y="86"/>
+     <Item Value="1"       X="41" Y=" 7"/>
+   </Nonlinearity>
+  </Shift> 
+ </Element>
+
+ <Mouse>
+
+  <Area Left="0" Width="50" Top="0" Height="120">
+    <Tooltip ID="TOOLTIPTEXT_THROTTLE_ENG1_THROTTLE_PERCENT"/>
+    <Cursor Type="Hand"/>
+    <Click Kind="LeftSingle+LeftDrag">(M:Y) 10 - 100 / 0 max 1 min 1 - /-/ 16384.0 * (&gt;K:THROTTLE1_SET)</Click>
+  </Area>
+
+  <Area Left="55" Width="64" Top="0" Height="120">
+   <Tooltip ID="TOOLTIPTEXT_THROTTLE_ENG1_MIXTURE_PERCENT"/>
+   <Cursor Type="Hand"/>
+   <Click Kind="LeftSingle+LeftDrag">(M:Y) 10 - 100 / 0 max 1 min 1 - /-/ 16384.0 * (&gt;K:MIXTURE1_SET)</Click>
+  </Area>
+
+ </Mouse>
+
+</Gauge>

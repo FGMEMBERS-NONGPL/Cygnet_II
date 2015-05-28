@@ -1,0 +1,58 @@
+<Gauge Name="Cygnet Elevator Trim" Version="1.0" Author="Edward Cook">
+ <!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+ <!--  ImageSizes: Bak=100,400, Ptr= 15,30 -->
+
+  <Image Name="eTrimBak.bmp" />
+
+  <Element>
+    <Position X="19" Y="0"/>
+    <Select>
+      <Value Minimum="-20" Maximum="20">(A:Elevator Trim Position,degrees) 20 + 2 * 5 % int</Value>
+        <Case Value="0">
+          <Image Name="trimwheel_0.bmp" />
+        </Case>
+        <Case Value="1">
+          <Image Name="trimwheel_1" />
+        </Case>
+         <Case Value="2">
+          <Image Name="trimwheel_2.bmp" />
+        </Case>
+        <Case Value="3">
+          <Image Name="trimwheel_3" />
+        </Case>
+         <Case Value="4">
+          <Image Name="trimwheel_4.bmp" />
+        </Case>
+    </Select>
+  </Element>
+  
+   <Element>
+    <Image Name="eTrimPtr.bmp">
+      <Axis X="4" Y="2" />
+    </Image>
+    <Shift>
+      <Value Minimum="-20" Maximum="20">(A:Elevator Trim Position,degrees)</Value>
+      <Nonlinearity>
+        <Item Value="-20" X="10" Y="  5" />
+        <Item Value="  0" X="10" Y=" 54" />
+        <Item Value="+20" X="10" Y="105" />
+      </Nonlinearity>
+    </Shift>
+  </Element>
+
+
+  <Mouse>
+    <Area Left="0" Width="27" Top="0" Height="110">
+      <Tooltip>Elevator  Trim  (%((A:ELEVATOR TRIM POSITION, degrees))%!2.1f!&#176;)</Tooltip>
+      <Area Top="56">
+        <Cursor Type="UpArrow" />
+        <Click Event="ELEV_TRIM_UP" Repeat="Yes" />
+      </Area>
+      <Area Bottom="54">
+	      <Cursor Type="DownArrow" />
+        <Click Event="ELEV_TRIM_DN" Repeat="Yes" />
+      </Area>
+    </Area>
+  </Mouse>
+
+</Gauge>

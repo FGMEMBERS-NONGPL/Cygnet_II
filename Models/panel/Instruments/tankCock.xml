@@ -1,0 +1,32 @@
+<Gauge Name="Pensuti 2 Fuel Cock" Version="1.0" Author="Edward Cook">
+  <!-- Image sizes: 301,301, bak;  274,23, Selr -->
+
+<Image Name="TankBk.bmp"/>
+
+   <Element>
+      <Image Name="TankSelr.bmp" PointsTo="East">
+         <Axis X="65" Y="11"/>
+      </Image>
+      <Position X="75" Y="75"/>
+      <Rotate>
+         <Value>(A:General eng fuel valve:1,bool)</Value>
+         <Nonlinearity>
+            <Item Value="0" X="275" Y="75"/>
+            <Item Value="1" X="75" Y="275"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="180"/>
+      </Rotate>
+   </Element>
+
+ 
+  <Mouse>
+  <Tooltip ID="TOOLTIPTEXT_FUEL_VALVE"/>
+      <Cursor Type="Hand"/>
+      <Click Event="TOGGLE_FUEL_VALVE_ENG1"/>
+  </Mouse>
+
+</Gauge>
+
+
+
+

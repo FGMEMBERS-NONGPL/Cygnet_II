@@ -1,0 +1,47 @@
+<Gauge Name="Power switch panel" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Image sizes: plate= 80,94  ; switches= 38,54.  -->
+
+  <Image Name="pwrSwPlate.bmp" />
+
+  <Element>
+    <Position X="1" Y="20"/>
+    <Select>
+      <Value>(A:Electrical master battery,bool)</Value>
+      <Case Value="0">
+        <Image Name="switch_up.bmp"/>
+      </Case>
+      <Case Value="1">
+        <Image Name="switch_down.bmp"/>
+      </Case>
+    </Select>
+  </Element>
+
+  <Element>
+    <Position X="41" Y="20"/>
+    <Select>
+      <Value>(A:General eng generator switch:1,bool)</Value>
+      <Case Value="0">
+        <Image Name="switch_up.bmp"/>
+      </Case>
+      <Case Value="1">
+        <Image Name="switch_down.bmp"/>
+      </Case>
+    </Select>
+  </Element>
+
+      
+  <Mouse>
+    <Area Left="0" Width="38">
+      <Tooltip>Battery Switch (%((A:Electrical master battery,bool))%{if}On%{else}Off%{end})</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click>(&gt;K:TOGGLE_MASTER_BATTERY)</Click>
+	</Area>
+	<Area Left="40" Width="38">
+      <Tooltip>Alternator(%((A:General eng generator switch:1,bool))%1!!%{if}on%{else}off%{end})</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click Event="TOGGLE_ALTERNATOR1"/>
+	</Area>
+  </Mouse>
+
+</Gauge>

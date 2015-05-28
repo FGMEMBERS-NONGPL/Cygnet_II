@@ -1,0 +1,25 @@
+<Gauge Name="Cygnet Parking brake Lever" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware. -->
+<!--   .  -->
+<!-- Image sizes: 48,99 lvr;  -->
+ 
+   <Element>
+    <Select>
+       <Value>(A:Brake parking position,bool)</Value>
+       <Case Value="0">
+          <Image Name="lever_fwd.bmp"/>
+       </Case>
+       <Case Value="1">
+          <Image Name="lever_bk.bmp"/>
+       </Case>
+    </Select>
+  </Element>
+  
+ 
+ <Mouse>
+  <Tooltip>Parking brake (%((A:Brake parking position,bool))%{if}On%{else}Off%{end})</Tooltip>
+  <Cursor Type="Hand"/>
+    <Click>(&gt;K:PARKING_BRAKES)</Click>
+ </Mouse>
+ 
+</Gauge>

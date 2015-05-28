@@ -1,0 +1,83 @@
+<Gauge Name="Power switch panel" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Image sizes: plate= 160,94   ; switches= 38,54.  -->
+
+  <Image Name="auxSwPlate.bmp" />
+
+  <Element>
+    <Position X="1" Y="20"/>
+    <Select>
+      <Value>(A:Avionics master switch,bool)</Value>
+      <Case Value="0">
+        <Image Name="switch_up.bmp"/>
+      </Case>
+      <Case Value="1">
+        <Image Name="switch_down.bmp"/>
+      </Case>
+    </Select>
+  </Element>   
+
+  <Element>
+	<Position X="41" Y="20"/>
+      <Select>
+         <Value>(A:Light nav,bool)</Value>
+         <Case Value="0">
+            <Image Name="switch_up.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="switch_down.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   
+  <Element>
+    <Position X="82" Y="20"/>
+    <Select>
+      <Value>(A:Light landing,bool)</Value>
+      <Case Value="0">
+        <Image Name="switch_up.bmp"/>
+      </Case>
+      <Case Value="1">
+        <Image Name="switch_down.bmp"/>
+      </Case>
+    </Select>
+  </Element>
+   
+  <Element>
+    <Position X="123" Y="20"/>
+    <Select>
+      <Value>(A:Light panel,bool)</Value>
+      <Case Value="0">
+        <Image Name="switch_up.bmp" />
+      </Case>
+      <Case Value="1">
+        <Image Name="switch_down.bmp" />
+      </Case>
+    </Select>
+  </Element>
+ 
+      
+  <Mouse>
+	  <Area Left="1" Width="38">
+      <Tooltip>Avionics (%((A:Avionics master switch,bool))%1!!%{if}on%{else}off%{end})</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click Event="TOGGLE_AVIONICS_MASTER"/>
+    </Area>
+    <Area Left="41" Width="38">
+      <Tooltip>Nav Lights (%((A:Light nav,bool))%1!!%{if}on%{else}off%{end})</Tooltip>
+      <Click Event="TOGGLE_NAV_LIGHTS"/>
+      <Cursor Type="Hand"/>
+    </Area>
+    <Area Left="81" Width="38">
+      <Tooltip>Landing Light(%((A:Light landing,bool))%{if}on%{else}off%{end})</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click Event="LANDING_LIGHTS_TOGGLE" />
+    </Area>
+    <Area Left="121" Width="38">
+      <Tooltip>Panel lights(%((A:Light panel,bool))%1!!%{if}on%{else}off%{end})</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click Event="PANEL_LIGHTS_TOGGLE"/>
+    </Area>	
+  </Mouse>
+
+</Gauge>

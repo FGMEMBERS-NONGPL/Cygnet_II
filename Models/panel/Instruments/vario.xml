@@ -1,0 +1,37 @@
+<Gauge Name="GAL42  vario" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware. -->
+<!-- Image sizes: 388,388 bak;  211,39 ptr -->
+
+   <Image Name="variocase.bmp"/>
+
+   <Element>
+      <Position X="193" Y="193"/>
+      <Image Name="varioptr.bmp" PointsTo="East">
+         <Axis X="59" Y="20"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="-2" Maximum="2">(A:Vertical speed, feet per minute) 1000 /</Value>
+         <Failures>
+            <SYSTEM_PITOT_STATIC Action="0"/>
+            <GAUGE_VERTICAL_SPEED Action="Freeze"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="-2.0" X="329" Y="267"/>
+            <Item Value="-1.5" X="238" Y="340"/>
+            <Item Value="-1.0" X="129" Y="311"/>
+            <Item Value="-0.5" X=" 61" Y="268"/>
+            <Item Value=" 0.0"  X=" 40" Y="191"/>
+            <Item Value=" 0.5"  X=" 61" Y="115"/>
+            <Item Value=" 1.0"  X="129" Y=" 53"/>
+            <Item Value=" 1.5"  X="238" Y=" 43"/>
+            <Item Value=" 2.0"  X="329" Y="117"/>         
+          </Nonlinearity>
+         <Delay DegreesPerSecond="30"/>
+      </Rotate>
+   </Element>
+
+    <Mouse>
+      <Tooltip ID="TOOLTIPTEXT_VSI_FEET_PER_MIN"/>
+   </Mouse>
+
+</Gauge>

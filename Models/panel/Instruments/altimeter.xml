@@ -1,0 +1,48 @@
+<Gauge Name="CLA7 Altimeter" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Image Sizes  case =307,311 : ptr = 157,17 -->
+
+   <Image Name="alt_case.bmp"/>
+
+   <Element>
+      <Position X="154" Y="151"/>
+      <Image Name="alt_ptr.bmp" PointsTo="East">
+         <Axis X="50" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="180">(A:Indicated Altitude, feet) 1000 /</Value>
+         <Failures>
+            <SYSTEM_PITOT_STATIC Action="40"/>
+            <GAUGE_AIRSPEED Action="Freeze"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value=" 0" X="152" Y="258"/>
+            <Item Value=" 6" X=" 51" Y="119"/>
+            <Item Value="12" X="216" Y=" 63"/>
+            <Item Value="18" X="216" Y="239"/>
+          </Nonlinearity>
+         <Delay DegreesPerSecond="180"/>
+      </Rotate>
+   </Element>
+
+   <Mouse>
+     
+      <Area Top="0" Bottom="356">
+         <Tooltip ID="TOOLTIPTEXT_ALTIMETER_FEET"/>
+      </Area>
+
+       <Area Left="242" Right="269" Top="246" Bottom="301">
+         <Tooltip ID="TOOLTIPTEXT_ALTIMETER_KOHLSMAN_MBAR"/>
+            <Cursor Type="DownArrow"/>
+            <Click Event="KOHLSMAN_DEC" Repeat="Yes"/>
+         </Area>
+
+       <Area Left="270" Right="297" Top="246" Bottom="301">
+         <Tooltip ID="TOOLTIPTEXT_ALTIMETER_KOHLSMAN_MBAR"/>
+            <Cursor Type="UpArrow"/>
+            <Click Event="KOHLSMAN_INC" Repeat="Yes"/>           
+         </Area>
+
+   </Mouse>
+
+</Gauge>

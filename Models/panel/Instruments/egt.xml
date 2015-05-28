@@ -1,0 +1,27 @@
+<Gauge Name=" GAL42 - EGT" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- ImageSizes=123,130 case, 23,5 ptr -->
+
+   <Image Name="egtcase.bmp"/>
+
+   <Element>
+      <Position X="62" Y="80"/>
+      <Image Name="egt_ptr.bmp" PointsTo="East">
+         <Axis X="-15" Y="2"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="-50" Maximum="700">(A:Eng1 exhaust gas temperature,celsius)</Value>
+         <Nonlinearity>
+			<Item Value="-50" X="24" Y="66"/>
+			<Item Value="0"   X="27" Y="60"/>
+			<Item Value="350" X="58" Y="41"/>
+            <Item Value="700" X="94" Y="59"/>
+         </Nonlinearity>
+         <Delay PixelsPerSecond="50"/>
+      </Rotate>
+   </Element>
+
+   <Mouse>
+      <Tooltip>Exhaust (%((A:Eng1 exhaust gas temperature,celsius))%!3d&#176;C)</Tooltip>
+   </Mouse>
+</Gauge>

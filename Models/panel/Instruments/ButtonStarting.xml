@@ -1,0 +1,29 @@
+<Gauge Name="Start Wellington eng1" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Image sizes: Bak = 64,64 ; buttons = 25,25  -->
+<!-- (L:Inverter,bool) set in 'Inverter.xml'.  -->
+
+ <Image Name="ButtBase.bmp"/>
+   
+     <Element>
+      <Position X="20" Y="20"/>
+      <Select>
+         <Value>(A:General eng1 starter, bool) if{ (A:General Eng1 RPM,rpm) 500 &lt; }</Value>     
+         <Case Value="0">
+            <Image Name="ButtOut.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="ButtIn.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   
+    <Mouse>
+   
+      <Tooltip ID="">Eng1 start</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click>(A:Electrical master battery, bool) if{ (&gt;K:TOGGLE_STARTER1) }</Click>    
+     
+   </Mouse>
+
+</Gauge>

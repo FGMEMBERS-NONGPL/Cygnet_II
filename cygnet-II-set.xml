@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+   <sim>
+   <description>Cygnet-II</description>
+   <author>3D model by Ted Cook for FS2004 used with permission, LesterBoffo FDM and 3D modding</author>
+   <status>beta</status> 
+
+   <flight-model archive="y">jsb</flight-model>
+   <aero archive="y">cygnet-II</aero>
+
+   <startup>
+    <splash-texture>Aircraft/Cygent_II/splash.png</splash-texture>
+    <units>meters</units>
+    <status>beta</status>
+    <fuel-fraction>1.0</fuel-fraction>
+   </startup>
+
+<sound>
+      <path>Aircraft/Cygnet_II/Sounds/cygnet-II-sound.xml</path>
+    </sound>
+
+  <model>
+   <path>Aircraft/Cygnet_II/Models/cygnet-II.xml</path>
+  </model>
+
+    <view>
+   <internal archive="y">true</internal>
+   <config>
+     <x-offset-m archive="y">-0.243</x-offset-m>  <!-- (-)right/left(+) -->
+     <y-offset-m archive="y">0.632</y-offset-m>  <!-- (+)up/down(-)    -->
+     <z-offset-m archive="y">0.16</z-offset-m>  <!--  (-)front/back(+) -->
+     <pitch-offset-deg>-5</pitch-offset-deg>  
+   </config>
+  </view>
+
+  <flaps>
+   <setting>0.00</setting>
+   <setting>0.25</setting>
+   <setting>0.50</setting>
+   <setting>0.75</setting> 
+   <setting>1.00</setting> 
+  </flaps>
+
+  <help>
+   <title>GAL Cygnet-II</title>
+   <key>
+    <name>c (lower case c) </name>
+    <desc>Toggle canopy</desc>
+   </key>
+  </help>
+
+ </sim>
+
+<controls>
+  <lighting>
+   <instruments-norm>0.43</instruments-norm>
+  </lighting>
+  <flight>  
+   <flaps>0.25</flaps>
+   <elevator-trim>-0.04</elevator-trim>
+   <rudder-trim>-0.01</rudder-trim>
+   <aileron-trim>-0.01</aileron-trim>
+  </flight>
+  <gear>
+    <brake-parking type="double">0</brake-parking>
+  </gear>
+ </controls>
+
+
+<input>
+<keyboard>
+
+<key n="99">
+     <name>c</name>
+     <desc>toggle canopy</desc>
+     <binding>
+       <command>property-toggle</command>
+       <property>fdm/jsbsim/systems/canopy/command</property>
+     </binding>
+    </key>
+
+  </keyboard>
+  </input>
+
+<instrumentation>
+  <marker-beacon>
+    <volume type="double" archive="y">0.0</volume>
+  </marker-beacon>
+  <rdmi-mode type="int">0</rdmi-mode> <!-- 0=TAC, 1=VOR, 2=ADF -->
+</instrumentation>
+
+ <fdm>
+  <jsbsim>
+   <simulation>
+     <sim-time-sec>0</sim-time-sec>
+   </simulation>
+   <systems>
+    <canopy>
+      <command type="double">1</command>
+      <position type="double">1</position>
+    </canopy> 
+   </systems> 
+  </jsbsim>
+ </fdm>
+
+ <payload>
+  <weight>
+   <name type="string">Pilot</name>
+   <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">270.0</max-lb>
+  </weight>
+  <weight>
+   <name type="string">Co-Pilot</name>
+   <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">270.0</max-lb>
+  </weight>
+  <weight>
+   <name type="string">Baggage</name>
+   <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">100.0</max-lb> <!-- WARNING: Max baggage "by the book" is 65lbs or less! -->
+  </weight>
+</payload>
+
+</PropertyList>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>landinglight.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+
+    <!-- Objets transparents -->
+    <object-name>phare</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>lightcone</object-name>
+  </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>lightcone</object-name>
+    <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <factor>1.0</factor>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>lightcone</object-name>
+    <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+  <factor>1.0</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+  <animation>
+   <type>select</type>
+   <object-name>lightcone</object-name>
+   <condition>
+    <equals>
+     <property>/controls/lighting/landing-lights</property>
+     <value>true</value>
+    </equals>
+   </condition>
+  </animation>
+
+</PropertyList>

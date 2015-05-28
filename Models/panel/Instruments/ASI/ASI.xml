@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>ASI.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>PointerTip</object-name>
+  <emission>
+   <red>0.62</red>
+   <green>0.62</green>
+   <blue>0.62</blue>
+   <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>PointerTip</object-name>
+  <object-name>PointerCentre</object-name>
+  <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <interpolation>
+   <entry><ind>0</ind><dep>0</dep></entry>
+   <entry><ind>26</ind><dep>45</dep></entry>
+   <entry><ind>41</ind><dep>90</dep></entry>
+   <entry><ind>79.9</ind><dep>180</dep></entry>
+   <entry><ind>121</ind><dep>270</dep></entry>
+   <entry><ind>156</ind><dep>337</dep></entry>
+  </interpolation>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+ </animation>
+
+</PropertyList>

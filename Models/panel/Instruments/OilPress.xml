@@ -1,0 +1,28 @@
+<Gauge Name="Audax Oil Pressure" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- ImageSizes : 274,274 case;  124,27 Pointer -->
+
+   <Image Name="oilpress_case.bmp"/>
+
+   <Element>
+      <Position X="139" Y="135"/>
+      <Image Name="sq_ptr.bmp" PointsTo="East">
+         <Axis X="38" Y="13"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="100">(A:Eng1 oil pressure,PSI)</Value>
+         <Nonlinearity>
+            <Item Value="  0" X="111" Y="216"/>
+            <Item Value=" 30" X=" 64" Y="101"/>
+            <Item Value=" 80" X="223" Y="147"/>
+            <Item Value="100" X="168" Y="216"/>
+         </Nonlinearity>
+         <Delay PixelsPerSecond="10"/>
+      </Rotate>
+   </Element>
+
+   <Mouse>
+      <Tooltip>Oil Pressure (%((A:Eng1 oil pressure,PSI))%!3d! psi)</Tooltip>
+   </Mouse>
+
+</Gauge>

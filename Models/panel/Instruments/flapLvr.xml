@@ -1,0 +1,37 @@
+<Gauge Name="Cygnet Flaps Handle" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!--  ImageSizes; 40,100 bak; 18,34 lvr.  -->
+
+  <Image Name="flapBak.bmp" />
+
+ <Element>
+  <Position X="22" Y="0"/>
+  <Image Name="flapKnob.bmp" />
+   <Shift>
+   <Value>(A:Flaps handle index,number)</Value>
+ 
+   <Nonlinearity>
+   	<Item Value="0" X="22" Y=" 0" />
+  	<Item Value="1" X="22" Y="18" />
+   	<Item Value="2" X="22" Y="42" />
+  	<Item Value="3" X="22" Y="70" />
+   </Nonlinearity>
+
+  </Shift>
+ </Element>
+
+
+ <Mouse>
+   <Area Top="0" Height="48">
+     <Tooltip>"Flaps Up"</Tooltip>
+     <Cursor Type="UpArrow"/>
+     <Click Event="FLAPS_DECR"/>
+   </Area>
+   <Area Top="51" Height="48">
+     <Tooltip>"Flaps Down"</Tooltip>
+     <Cursor Type="DownArrow"/>
+     <Click Event="FLAPS_INCR"/>
+   </Area>  
+  </Mouse>
+
+</Gauge>

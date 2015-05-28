@@ -1,0 +1,32 @@
+<Gauge Name="F III D  Airspeed Indicator, mph" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+
+   <Image Name="ASIcase.bmp" ImageSizes="255,262"/>
+
+   <Element>
+      <Position X="126" Y="128"/>
+      <Image Name="ASIptr.bmp" PointsTo="East" ImageSizes="131,14">
+         <Axis X="38" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="10" Maximum="180">(A:Airspeed indicated,mph)</Value>
+         <Failures>
+            <SYSTEM_PITOT_STATIC Action="40"/>
+            <GAUGE_AIRSPEED Action="Freeze"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="10" X="89" Y="214"/>
+            <Item Value="60" X="42" Y="85"/>
+            <Item Value="100" X="147" Y="36"/>
+            <Item Value="150" X="215" Y="156"/>
+            <Item Value="180" X="150" Y="218"/>
+          </Nonlinearity>
+         <Delay DegreesPerSecond="180"/>
+      </Rotate>
+   </Element>
+
+    <Mouse>
+      <Tooltip>Airspeed (%((A:Airspeed indicated,mph))%!d! mph.)</Tooltip>
+   </Mouse>
+
+</Gauge>

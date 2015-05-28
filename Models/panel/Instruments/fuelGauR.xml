@@ -1,0 +1,32 @@
+<Gauge Name="Cygnet Right Fuel Gauge" Version="1.0" Author="Edward Cook">
+
+<!-- Image Sizes: Bak=300,300; ptr=170,15.  -->
+
+  <Image Name="fuel_RBk.bmp"/>
+  <Element>
+    <Position X="150" Y="60"/>
+    <Image Name="fuelPtr.bmp" PointsTo="East" >
+      <Axis X="10" Y="8"/>
+    </Image>
+    <Rotate>
+      <Value>(A:Fuel tank right main level,percent)</Value>
+      <Failures>
+        <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="100" X="253" Y="195"/>
+        <Item Value=" 80" X="215" Y="215"/>
+        <Item Value=" 60" X="172" Y="227"/>
+        <Item Value=" 40" X="128" Y="227"/>
+        <Item Value=" 20" X=" 86" Y="215"/>             
+        <Item Value="  0" X=" 46" Y="195"/>
+      </Nonlinearity>
+      <Delay DegreesPerSecond="10"/>
+    </Rotate>
+  </Element>
+  
+  <Mouse>
+    <Tooltip ID="TOOLTIPTEXT_RIGHT_FUEL_GALLONS"/>
+  </Mouse>
+  
+</Gauge>

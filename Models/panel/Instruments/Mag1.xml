@@ -1,0 +1,59 @@
+<Gauge Name="Magneto Switch Eng1" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Thanks to Rob,'rcbarend' on AvSim.com & Arne Bartels for help with the Timer code.  -->
+
+   <Image Name="MagBk.bmp" ImageSizes="190,288"/>
+   
+   <Element>
+     <Position X="35" Y="16" />
+      <Select>
+         <Value>(A:Recip Eng1 left magneto,bool) (P:ABSOLUTE Time,seconds) (G:Var1) 1 + &lt; !=</Value>
+         <Case Value="0">
+            <Image Name="MagLvrDn.bmp" ImageSizes="25,256"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="MagLvrUp.bmp" ImageSizes="25,256"/>
+         </Case>
+      </Select>
+   </Element>
+   
+   <Element>
+     <Position X="120" Y="16" />
+      <Select>
+         <Value>(A:Recip Eng1 right magneto,bool) (P:ABSOLUTE Time,seconds) (G:Var2) 1 + &lt; !=</Value>
+         <Case Value="0">
+            <Image Name="MagLvrDn.bmp" ImageSizes="25,256"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="MagLvrUp.bmp" ImageSizes="25,256"/>
+         </Case>
+      </Select>
+   </Element>
+   
+   <Element>
+     <Position X="10" Y="68"/>
+      <Select>
+         <Value>(P:ABSOLUTE Time,seconds) (G:Var3) 2 + &gt;</Value>
+         <Case Value="0">
+            <Image Name="MagDetentUp.bmp" ImageSizes="170,30"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="MagDetentDn.bmp" ImageSizes="170,81"/>
+         </Case>
+      </Select>
+   </Element>
+   
+   <Mouse>
+     <Area Left="0" Width="93">
+       <Tooltip ID="TOOLTIPTEXT_ENG1_MAGNETO_SWITCH"/>
+       <Cursor Type="Hand"/>
+         <Click>(P:ABSOLUTE Time,seconds) d (&gt;G:Var1) (&gt;G:Var3) (&gt;K:MAGNETO1_LEFT)</Click>
+     </Area>
+     <Area Left="97" Width="93">
+       <Tooltip ID="TOOLTIPTEXT_ENG1_MAGNETO_SWITCH"/>
+       <Cursor Type="Hand"/>
+         <Click>(P:ABSOLUTE Time,seconds) d (&gt;G:Var2) (&gt;G:Var3) (&gt;K:MAGNETO1_RIGHT)</Click>
+     </Area>
+   </Mouse>
+   
+</Gauge>

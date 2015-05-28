@@ -1,0 +1,49 @@
+<Gauge Name="Wellington Gyro compass" Version="1.0">
+<!--  -->
+<!-- Sizes:: Case= 138,182; mask= 86,43; knob = 34,34; tape= 828,43:  -->
+
+  <Image Name="dir_ind_case.bmp"/>
+  
+  <Element>
+    <Position X="26" Y="32"/>
+    <MaskImage Name="dir_ind_mask.bmp">
+      <Axis X="43" Y="0"/>
+    </MaskImage>
+    <Image Name="dir_ind_tape.bmp">
+      <Nonlinearity>
+        <Item Value="  0" X="770" Y="0"/>
+        <Item Value=" 90" X="590" Y="0"/>
+        <Item Value="180" X="410" Y="0"/>
+        <Item Value="270" X="230" Y="0"/>
+        <Item Value="360" X=" 50" Y="0"/>
+      </Nonlinearity>
+    </Image>
+   <Shift>
+     <Value>(A:Heading Indicator,degrees) dnor</Value>
+   </Shift>
+  </Element>
+ 
+
+   <Element>
+    <Position X="64" Y="165"/>
+    <Image Name="dir_ind_set.bmp">
+      <Axis X="17" Y="17" PointsTo="East"/>   
+    </Image>
+    <Rotate>
+      <Value>(G:Var1) dgrd</Value>
+      <Delay DegreesPerSecond="360"/>
+    </Rotate>
+  </Element>
+
+  <Mouse>
+    <Tooltip ID="TOOLTIPTEXT_HEADING_INDICATOR_HEADING"/>
+      <Area Left="40" Width="23" Top="151" Height="43">
+        <Cursor Type="DownArrow"/>
+         <Click Repeat="Yes">0 (&gt;K:GYRO_DRIFT_DEC) (G:Var1) 5 - s0 0 &lt; if{ 340 } els{ l0 } (&gt;G:Var1)</Click>
+      </Area>   
+      <Area Left="65" Width="23" Top="151" Height="43">
+        <Cursor Type="UpArrow"/>
+        <Click Repeat="Yes">0 (&gt;K:GYRO_DRIFT_INC) (G:Var1) 5 + 360 % (&gt;G:Var1)</Click>
+     </Area>
+  </Mouse>
+</Gauge>

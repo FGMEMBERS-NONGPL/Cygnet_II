@@ -1,0 +1,30 @@
+<Gauge Name="M20 Flaps Gauge" Version="1.0" Author="Edward Cook">
+<!--  Image Sizes: Bak=150,420;Ptr=50,5 -->
+
+ <Image Name="flapBk.bmp"/>
+ 
+  <Element>
+    <Position X="149" Y="149"/>
+    <Image Name="flapPtr.bmp" PointsTo="East">
+      <Axis X="14" Y="6" />
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="45">(A:Trailing edge flaps0 left angle,degrees)</Value>
+      <Failures>
+        <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value=" 0" X=" 54" Y="225" />
+        <Item Value="10" X=" 30" Y="125" />
+        <Item Value="25" X="173" Y=" 34" />
+        <Item Value="45" X="240" Y="221" />
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  
+  <Mouse>
+    <Tooltip ID="TOOLTIPTEXT_FLAP_INDICATOR_POSITION"/>
+    <Cursor Type="Normal"/>
+  </Mouse>
+  
+</Gauge>

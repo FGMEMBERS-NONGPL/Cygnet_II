@@ -1,0 +1,73 @@
+<Gauge Name="M20 V+A meter" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+
+  <Image Name="VAface.bmp" />
+
+<!-- =============  needle  ===============  -->
+  <Element>
+    <Position X="197" Y="263" />
+    <Image Name="VAptr.bmp" PointsTo="East">
+       <Axis X="0" Y="3" />
+    </Image>
+    <Rotate>
+      <Value Minimum="-60" Maximum="60">(G:Var2) (* read V or A *)
+        if{ (A:Electrical battery load,amps) } (* -ve and -ve display *)
+        els{ (A:Electrical battery bus voltage,volts) 2 * } (* uses the same scale as Ammeter so x2 *)
+      </Value>
+      <Nonlinearity>
+        <Item Value="-60" X=" 89" Y="172" />
+        <Item Value="-40" X="120" Y="146" />
+        <Item Value="-20" X="155" Y="129" />
+        <Item Value="  0" X="196" Y="123" /> 
+        <Item Value=" 20" X="235" Y="129" />
+        <Item Value=" 40" X="272" Y="146" />
+        <Item Value=" 60" X="301" Y="172" />
+      </Nonlinearity>
+      <Delay DegreesPerSecond="60" />
+    </Rotate>
+  </Element>
+
+<!-- =============  CASE  ===============  -->
+  <Element>
+    <Position X="0" Y="0" />
+    <Image Name="VAcase.bmp" />
+  </Element>
+
+<!-- ============  BUTTON  ==============  -->
+  <Element>
+    <Position X="102" Y="265" />
+    <Select>
+      <Value>(G:var2)</Value>
+        <Case Value="0">
+          <Image Name="VAbtnIn.bmp" />
+        </Case>
+        <Case Value="1">
+          <Image Name="VAbtnOut.bmp" />
+        </Case>
+    </Select>
+  </Element>
+
+<!-- ==========  READ TIMER  ============  -->
+ <Element>
+    <Select>
+      <Value>(P:Absolute Time,seconds) (G:var1) &gt; (&gt;G:Var2)</Value>
+    </Select>
+ </Element>
+
+ <Mouse>
+  
+	<Area Bottom="260">
+    <Tooltip>Ammeter (%((A:Electrical battery load,amps))%!2.1f! A)</Tooltip>
+ 		<Cursor Type="Normal"/> 
+	</Area>
+
+<!-- ==========  SET TIMER  ============  -->
+	<Area Left="102" Width="60" Top="238" Height="60">
+ 		<Tooltip>VOLTS (%((A:Electrical battery bus voltage,volts))%!2.1f! V)</Tooltip> 
+ 		<Cursor Type="Hand"/> 
+   		<Click Repeat="Yes">(P:Absolute Time,seconds) 1 + (&gt;G:var1)</Click>
+	</Area>
+	 
+ </Mouse> 
+ 
+</Gauge>

@@ -1,0 +1,68 @@
+<Gauge Name="Time of Flight Clock" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- Image sizes: case=301,301: secs=36,3: hr=90,19: min=115,19   -->
+
+  <Image Name="clock_case.bmp"/>
+
+  <!-- ========================= Seconds Hand ==================== -->
+  <Element>
+    <Position X="149" Y="214"/>
+    <Image Name="clock_sec.bmp">
+      <Axis X="4" Y="1"/>
+    </Image>
+    <Rotate>
+      <Value>(P:Local time,seconds) (L:MKseconds,number) - flr 60 % d (&gt;G:Var3)</Value>
+      <Nonlinearity>
+        <Item Value=" 0" X="149" Y="181"/>
+        <Item Value="15" X="181" Y="214"/>
+        <Item Value="30" X="149" Y="246"/>
+        <Item Value="45" X="117" Y="214"/>
+        <Item Value="60" X="149" Y="181"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  
+  <!-- ========================= Hour Hand ====================== -->
+  <Element>
+    <Position X="149" Y="149"/>
+    <Image Name="clock_hr.bmp" PointsTo="East">
+      <Axis X="9" Y="9"/>
+    </Image>
+    <Rotate>
+      <Value>(P:Local time,hours) (L:MKhours,number) - d (&gt;G:Var1)</Value>
+      <Nonlinearity>
+        <Item Value=" 0" X="149" Y=" 40"/>
+        <Item Value=" 3" X="256" Y="149"/>
+        <Item Value=" 6" X="149" Y="258"/>
+        <Item Value=" 9" X=" 40" Y="149"/>
+        <Item Value="12" X="149" Y=" 40"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  
+  <!-- === Minute Hand - Last to be drawn [ = on top ]============ -->
+  <Element>
+    <Position X="149" Y="149"/>
+    <Image Name="clock_min.bmp" PointsTo="East">
+      <Axis X="9" Y="9"/>
+    </Image>
+    <Rotate>
+      <Value>(P:Local time,minutes) (L:MKminutes,number) - flr 60 % d (&gt;G:Var2)</Value>
+      <Nonlinearity>
+        <Item Value=" 0" X="149" Y=" 40"/>
+        <Item Value="15" X="256" Y="149"/>
+        <Item Value="30" X="149" Y="258"/>
+        <Item Value="45" X=" 40" Y="149"/>
+        <Item Value="60" X="149" Y=" 40"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+
+  <Mouse>
+        <Tooltip>Time %((G:Var1))%!2.0f! H : %((G:Var2))%!2.0f! m : %((G:Var3))%!2.0f! s%</Tooltip>
+        <Click Kind="RightSingle">(M:Event) 'RightSingle' (P:Local time,hours) (&gt;L:MKhours,number) (P:Local time,minutes) (&gt;L:MKminutes,number) (P:Local time,seconds) (&gt;L:MKseconds,number)</Click>
+  </Mouse>
+  
+</Gauge>
+
+

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+  File:     cirrus_moth.xml
+  Author:   hacked from stampe SV4 
+
+  Inputs:
+    name:           Blackburn/Cirrus-Moth
+    type:           piston
+    power:          145.0 hp
+    augmented?      no
+    injected?       no
+-->
+
+<piston_engine name="cirrus_moth">
+  <minmp unit="INHG">          10.0 </minmp>
+  <maxmp unit="INHG">         29.9 </maxmp>
+  <displacement unit="IN3"> 383.00 </displacement>
+  <stroke unit="IN">  5.5  </stroke> 
+  <bore unit="IN">  4.7 </bore> 
+  <cylinders> 4  </cylinders>
+  <cylinder-head-mass> 13 </cylinder-head-mass>
+  <compression-ratio> 6.0 </compression-ratio>
+  <static-friction> 0.41 </static-friction>
+  <maxhp>         150.00 </maxhp>
+  <bsfc>  0.435 </bsfc>
+  <cycles>         4.0 </cycles>
+  <idlerpm>      550.0 </idlerpm>
+  <maxrpm>      2400.0 </maxrpm>
+  <maxthrottle>    1.0 </maxthrottle>
+  <minthrottle>    0.1 </minthrottle>
+  <sparkfaildrop> 0.1 </sparkfaildrop>
+  <cooling-factor> 0.76 </cooling-factor>
+  <volumetric-efficiency> 0.59 </volumetric-efficiency>
+</piston_engine>

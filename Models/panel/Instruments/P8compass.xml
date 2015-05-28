@@ -1,0 +1,61 @@
+<Gauge Name="P8 Magnetic compass" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- (L:Timeout posn,degrees)= motion flag for the lock lever (different from 'L:scale posn' whilst moving) -->
+  <Image Name="P8case.bmp" ImageSizes="320,320"/>
+  <Element>
+    <Position X="162" Y="157"/>
+    <Image Name="P8needle.bmp" ImageSizes="172,172">
+      <Axis X="86" Y="86"/>
+    </Image>
+<!-- Wiskey compass is a Heading indicator, the rotation must be reversed to indicate where N is -->
+    <Rotate>
+      <Value>(A:Wiskey compass indication degrees,radians) /-/</Value>
+   </Rotate>
+  </Element>
+  <Element>
+    <Position X="159" Y="158"/>
+    <Image Name="P8scale.bmp" ImageSizes="302,302" PointsTo="North">
+      <Axis X="151" Y="151"/>
+    </Image>
+    <Rotate>
+      <Value>(L:Scale posn,degrees)</Value>
+      <Nonlinearity>
+        <Item Value=  "0" X="129" Y="43"/>
+        <Item Value= "90" X="213" Y="130"/>
+        <Item Value="180" X="129" Y="213"/>
+        <Item Value="270" X="43"  Y="130"/>
+        <Item Value="360" X="129" Y="43"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+<!-- Timer to retain the 'last time' scale posn. over several cycles and so avoid flickering of the bitmap -->
+    <Select>
+     <Value>(P:Absolute time,seconds) (L:Reftime,seconds) 1 + &gt; if{ (L:Scale posn,degrees) (&gt;L:Timeout posn,degrees) }</Value>
+    </Select>
+  </Element>
+  <Element>
+<!-- When there is no change in the value over the time set by the timer element (1 +) the bitmap is restored -->
+      <Position X="24" Y="240"/>
+      <Select>
+         <Value>(L:Scale posn,degrees) (L:Timeout posn,degrees) !=</Value>
+         <Case Value="0">
+            <Image Name="P8lockon.bmp" ImageSizes="62,62"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="P8lockoff.bmp" ImageSizes="62,62"/>
+         </Case>
+      </Select>
+   </Element>
+  <Mouse>
+     <Tooltip ID="TOOLTIPTEXT_WHISKEY_COMPASS"/>
+	<Area Left="24" Right="47" Top="240" Bottom="300">
+      <Cursor Type="UpArrow" Repeat="Yes"/>
+        <Click Repeat="Yes">(P:Absolute time,seconds) (&gt;L:Reftime,seconds) (L:Scale posn,degrees) ++ (&gt;L:Scale posn,degrees) (L:Scale posn,degrees) 360 &gt; if{ 0 (&gt;L:Scale posn,degrees) }</Click>
+	</Area>
+	<Area Left="49" Right="84" Top="240" Bottom="300">
+      <Cursor Type="DownArrow" Repeat="Yes"/>
+        <Click Repeat="Yes">(P:Absolute time,seconds) (&gt;L:Reftime,seconds) (L:Scale posn,degrees) -- (&gt;L:Scale posn,degrees) (L:Scale posn,degrees) 0 &lt; if{ 360 (&gt;L:Scale posn,degrees) }</Click>
+	</Area>
+  </Mouse>
+</Gauge>

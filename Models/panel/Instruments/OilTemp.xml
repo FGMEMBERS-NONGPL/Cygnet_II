@@ -1,0 +1,28 @@
+<Gauge Name="Audax Oil Temperature" Version="1.0" Author="Edward Cook">
+<!-- e-mail : tedcook@btinternet.com : This gauge is freeware.  -->
+<!-- ImageSizes : 274,274 case;  124,27 Pointer -->
+
+   <Image Name="oiltemp_case.bmp"/>
+
+   <Element>
+      <Position X="139" Y="135"/>
+      <Image Name="sq_ptr.bmp" PointsTo="East">
+         <Axis X="38" Y="13"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="100">(A:General eng1 oil temperature,celsius)</Value>
+         <Nonlinearity>
+            <Item Value="  0" X="108" Y="220"/>
+            <Item Value=" 30" X=" 59" Y=" 97"/>
+            <Item Value=" 80" X="229" Y="146"/>
+            <Item Value="100" X="170" Y="220"/>
+         </Nonlinearity>
+         <Delay PixelsPerSecond="10"/>
+      </Rotate>
+   </Element>
+
+   <Mouse>
+      <Tooltip ID="TOOLTIPTEXT_OIL_TEMPERATURE_CELSIUS"/>
+   </Mouse>
+
+</Gauge>
